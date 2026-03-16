@@ -1,0 +1,26 @@
+BY SUBMITTING THIS FILE TO CARMEN, I CERTIFY THAT I HAVE PERFORMED ALL OF THE 
+WORK TO CREATE THIS FILE AND/OR DETERMINE THE ANSWERS FOUND WITHIN THIS 
+FILE MYSELF WITH NO ASSISTANCE FROM ANY PERSON (OTHER THAN THE INSTRUCTOR 
+OR GRADERS OF THIS COURSE) AND I HAVE STRICTLY ADHERED TO THE TENURES OF THE 
+OHIO STATE UNIVERSITY’S ACADEMIC INTEGRITY POLICY.
+
+THIS IS THE README FILE FOR LAB 3.
+Name: Gavin SHi
+Total Effort: Approximately 10 hours.
+
+General Comments:
+The most interesting part of this lab was managing the array of pointers. 
+It was a good challenge to ensure that the favorites list did not need its 
+own copies of the strings, but rather just pointed to the memory already 
+allocated for the primary book list. Dealing with the newline character 
+left in the buffer by scanf was a small issue for me. Implementing the 
+lab3.h file helped organize the function prototypes cleanly.
+
+GDB Debugging Report:
+To verify my program, I used GDB to ensure memory was being allocated 
+correctly for each book title. I set a breakpoint at the line where strcpy 
+runs and used the print command to inspect the buffer and the book_list[i] 
+pointer. I stepped through the loop using next to verify that each subsequent 
+title was being stored in a unique memory address. By printing book_list[i] 
+after allocation, I confirmed that the memory addresses were distinct and 
+that no data was being overwritten.
