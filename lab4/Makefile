@@ -10,12 +10,12 @@
 all: lab4.zip lab4
 
 # this target is the .zip file that must be submitted to Carmen
-lab4.zip: Makefile lab4Readme lab4main.c printLine.c printLineLastName.c printHeader.c ID_isduplicate.c read_data.c insert_node.c get_NodeforID.c printStudent.c printRecords.c lab4.h
+lab4.zip: Makefile lab4Readme lab4main.c printLine.c printLineLastName.c printHeader.c ID_isduplicate.c read_data.c calculate_cumulative.c insert_node.c get_NodeforID.c printStudent.c printRecords.c recalculate_student.c recalculate_all.c insert_score.c calculate_final.c add_student.c delete_student.c write_file.c free_all.c lab4.h
 	zip lab4.zip Makefile lab4Readme *.c lab4.h
 
-# this target is the lab4 executable
-lab4: lab4main.o printLine.o printLineLastName.o printHeader.o ID_isduplicate.o read_data.o insert_node.o get_NodeforID.o printStudent.o printRecords.o
-	gcc lab4main.o printLine.o printLineLastName.o printHeader.o ID_isduplicate.o read_data.o insert_node.o get_NodeforID.o printStudent.o printRecords.o -o lab4
+# this target is the lab4 executable	
+lab4: lab4main.o printLine.o printLineLastName.o printHeader.o ID_isduplicate.o read_data.o insert_node.o get_NodeforID.o printStudent.o printRecords.o recalculate_student.o calculate_cumulative.o recalculate_all.o insert_score.o calculate_final.o add_student.o delete_student.o write_file.o free_all.o
+	gcc lab4main.o printLine.o printLineLastName.o printHeader.o ID_isduplicate.o read_data.o insert_node.o get_NodeforID.o printStudent.o printRecords.o recalculate_student.o calculate_cumulative.o recalculate_all.o insert_score.o calculate_final.o add_student.o delete_student.o write_file.o free_all.o -o lab4
 
 # this target is the dependency for compiling .c files to .o files
 %.o: %.c lab4.h

@@ -1,32 +1,13 @@
 /* BY SUBMITTING THIS FILE TO CARMEN, I CERTIFY THAT I HAVE PERFORMED ALL OF THE
- * WORK TO CREATE THIS FILE AND/OR DETERMINE THE ANSWERS FOUND WITHIN THIS FILE
- * MYSELF WITH NO ASSISTANCE FROM ANY PERSON (OTHER THAN THE INSTRUCTOR OR
- * GRADERS OF THIS COURSE) AND I HAVE STRICTLY ADHERED TO THE TENURES OF THE
- * OHIO STATE UNIVERSITY’S ACADEMIC INTEGRITY POLICY. */
+WORK TO CREATE THIS FILE AND/OR DETERMINE THE ANSWERS FOUND WITHIN THIS
+FILE MYSELF WITH NO ASSISTANCE FROM ANY PERSON (OTHER THAN THE INSTRUCTOR
+OR GRADERS OF THIS COURSE) AND I HAVE STRICTLY ADHERED TO THE TENURES OF THE
+OHIO STATE UNIVERSITY’S ACADEMIC INTEGRITY POLICY.
+
+Author: Gavin Shi
+*/
+
 #include "lab4.h"
-
-/* Helper to calculate cumulative score */
-float calculate_cumulative(float s1, float s2, float s3) {
-  float sum = 0.0;
-  int count = 0;
-
-  if (s1 != -1.0f) {
-    sum += s1;
-    count++;
-  }
-  if (s2 != -1.0f) {
-    sum += s2;
-    count++;
-  }
-  if (s3 != -1.0f) {
-    sum += s3;
-    count++;
-  }
-
-  if (count == 0)
-    return -1.0f;
-  return sum / count;
-}
 
 Node *read_data(const char *filename, char *categories) {
   FILE *file;
@@ -45,7 +26,7 @@ Node *read_data(const char *filename, char *categories) {
     printf("Reading student information from file \"%s\"\n", filename);
   }
 
-  // Read the first line and format it exactly how printHeader.c expects
+  /* Read the first line and format it exactly how printHeader.c expects */
   if (fgets(buffer, sizeof(buffer), file) == NULL) {
     fclose(file);
     return NULL;
@@ -57,7 +38,7 @@ Node *read_data(const char *filename, char *categories) {
   strcpy(&categories[30], cat3);
   strcpy(&categories[45], cat4);
 
-  // Read student data until EOF
+  /* Read student data until EOF */
   while (fgets(buffer, sizeof(buffer), file) != NULL) {
     buffer[strcspn(buffer, "\n")] = 0;
 
@@ -86,7 +67,7 @@ Node *read_data(const char *filename, char *categories) {
      */
     fgets(buffer, sizeof(buffer), file);
 
-    // Calculate cumulatives
+    /* Calculate cumulatives */
     new_node->Student.Cat1.Cumulative = calculate_cumulative(
         new_node->Student.Cat1.score1, new_node->Student.Cat1.score2,
         new_node->Student.Cat1.score3);
@@ -100,7 +81,7 @@ Node *read_data(const char *filename, char *categories) {
         new_node->Student.Cat4.score1, new_node->Student.Cat4.score2,
         new_node->Student.Cat4.score3);
 
-    // Calculate Current Grade
+    /* Calculate Current Grade */
     c1 = (new_node->Student.Cat1.Cumulative == -1.0f)
              ? 100.0f
              : new_node->Student.Cat1.Cumulative;

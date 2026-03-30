@@ -21,35 +21,35 @@ void printStudent(Node *NodePtr) {
     return;
   }
 
-  // Print Name and ID
-  printf("%-20s\t%-10d\t", NodePtr->Student.student_name,
+  /* Print Name and ID */
+  printf("%-20s\t%-10d", NodePtr->Student.student_name,
          NodePtr->Student.student_ID);
 
-  // Print Category 1
+  /* Print Category 1 */
   print_score(NodePtr->Student.Cat1.score1);
   print_score(NodePtr->Student.Cat1.score2);
   print_score(NodePtr->Student.Cat1.score3);
   print_score(NodePtr->Student.Cat1.Cumulative);
 
-  // Print Category 2
+  /* Print Category 2 */
   print_score(NodePtr->Student.Cat2.score1);
   print_score(NodePtr->Student.Cat2.score2);
   print_score(NodePtr->Student.Cat2.score3);
   print_score(NodePtr->Student.Cat2.Cumulative);
 
-  // Print Category 3
+  /* Print Category 3 */
   print_score(NodePtr->Student.Cat3.score1);
   print_score(NodePtr->Student.Cat3.score2);
   print_score(NodePtr->Student.Cat3.score3);
   print_score(NodePtr->Student.Cat3.Cumulative);
 
-  // Print Category 4
+  /* Print Category 4 */
   print_score(NodePtr->Student.Cat4.score1);
   print_score(NodePtr->Student.Cat4.score2);
   print_score(NodePtr->Student.Cat4.score3);
   print_score(NodePtr->Student.Cat4.Cumulative);
 
-  // Print Current and Final Grades
+  /* Print Current Grade */
   print_score(NodePtr->Student.Current_Grade);
   print_score(NodePtr->Student.Final_Grade);
 

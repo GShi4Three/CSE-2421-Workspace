@@ -50,5 +50,14 @@ Node *insert_node(Node *head, Node *new_node);
 void printStudent(Node *NodePtr);
 void printLineLastName(Node *head, char *Category_Names);
 void printRecords(Node *head, char *Category_Names);
+void recalculate_student(Node *head, char *Category_Names);
+float calculate_cumulative(float s1, float s2, float s3);
+void recalculate_all(Node *head, char *Category_Names);
+void insert_score(Node *head, char *Category_Names);
+void calculate_final(Node *head, char *Category_Names);
+Node *add_student(Node *head, char *Category_Names);
+Node *delete_student(Node *head);
+void write_data(char *filename, Node *head, char *Category_Names);
+void free_all(Node *head);
 
 #endif

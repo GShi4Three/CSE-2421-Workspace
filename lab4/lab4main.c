@@ -14,18 +14,19 @@ int main(int argc, char *argv[]) {
   Node *head = NULL;
   int choice = 0;
 
-  void (*options[7])(Node *, char *) = {printLine, printLineLastName,
-                                        printRecords};
+  void (*options[7])(Node *, char *) = {
+      printLine,       printLineLastName, printRecords,   recalculate_student,
+      recalculate_all, insert_score,      calculate_final};
 
   if (argc != 3) {
     printf("Usage: %s filename1 filename2\n", argv[0]);
     return 1;
   }
 
-  // Read in initial class records
+  /* Read in initial class records */
   head = read_data(argv[1], categories);
 
-  // Display Choices
+  /* Display Choices */
   while (choice != 10) {
     printf("\n\n\nPlease enter an option between 1 and 10:\n");
     printf("1) Print Student Scores by Student ID\n");
@@ -40,7 +41,14 @@ int main(int argc, char *argv[]) {
     printf("10) Exit Program\n\n");
     printf("Option: ");
 
-    scanf("%d", &choice);
+    /* Handle non-numeric input to prevent infinite loops */
+    if (scanf("%d", &choice) != 1) {
+      printf("Invalid input. Please enter a number 1-10.\n");
+      while (getchar() != '\n')
+        ; /* Clear input buffer */
+      choice = 0;
+      continue;
+    }
 
     switch (choice) {
     case 1:
@@ -53,11 +61,14 @@ int main(int argc, char *argv[]) {
       options[choice - 1](head, categories);
       break;
     case 8:
+      head = add_student(head, categories);
       break;
     case 9:
+      head = delete_student(head);
       break;
     case 10:
-      printf("Exiting program...\n");
+      write_data(argv[2], head, categories);
+      free_all(head);
       break;
     default:
       printf("Invalid choice. Please enter 1 - 10.\n");

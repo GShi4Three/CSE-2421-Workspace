@@ -12,7 +12,7 @@ Author: Gavin Shi
 void printRecords(Node *head, char *Category_Names) {
   Node *current = head;
 
-  // Variables for calculating class averages
+  /* Variables for calculating class averages */
   float sum_cat1 = 0.0f, sum_cat2 = 0.0f, sum_cat3 = 0.0f, sum_cat4 = 0.0f;
   float sum_current = 0.0f;
   int count_cat1 = 0, count_cat2 = 0, count_cat3 = 0, count_cat4 = 0;
@@ -23,7 +23,7 @@ void printRecords(Node *head, char *Category_Names) {
     return;
   }
 
-  // Print the column headers prior to printing the data
+  /* Print the column headers prior to printing the data */
   printHeader(Category_Names);
 
   /* Traverse the list, print each student, and accumulate totals for the
@@ -31,7 +31,7 @@ void printRecords(Node *head, char *Category_Names) {
   while (current != NULL) {
     printStudent(current);
 
-    // Average calculations
+    /* Average calculations */
     sum_cat1 += current->Student.Cat1.Cumulative;
     count_cat1++;
 
@@ -50,7 +50,7 @@ void printRecords(Node *head, char *Category_Names) {
     current = current->next;
   }
 
-  // Print the summary line
+  /* Print the summary line */
   printf("\nClass Averages for ");
 
   if (count_cat1 > 0)
